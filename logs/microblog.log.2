@@ -1,0 +1,106 @@
+2018-08-21 19:45:51,433 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-21 19:45:59,943 ERROR: Exception on /edit_profile [POST] [in /home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/belov/devman/microblog/app/routes.py", line 97, in edit_profile
+    db.session.commit()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 467, in commit
+    self._prepare_impl()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 447, in _prepare_impl
+    self.session.flush()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2254, in flush
+    self._flush(objects)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 249, in reraise
+    raise value
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2344, in _flush
+    flush_context.execute()
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 556, in execute
+    uow
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 177, in save_obj
+    mapper, table, update)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 768, in _emit_update_statements
+    execute(statement, multiparams)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1200, in _execute_context
+    context)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1193, in _execute_context
+    context)
+  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('petka', '', 3)] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-08-21 20:02:13,865 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:35:29,409 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:36:15,417 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:36:57,762 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:37:13,187 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:38:41,875 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:41:42,369 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:43:08,137 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:43:33,587 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:44:20,078 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 18:44:40,240 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:41:23,178 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:42:13,231 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:42:37,987 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:44:31,160 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:45:52,790 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:48:21,956 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:48:34,059 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:51:19,292 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:52:55,287 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:53:07,582 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:54:50,476 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:54:52,704 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 19:54:56,755 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 20:05:33,400 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-22 20:23:19,935 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 11:00:09,645 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 11:22:20,109 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 12:17:43,312 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 12:19:37,631 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 13:25:35,833 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 13:27:24,702 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
+2018-08-23 13:30:56,852 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:45]
