@@ -34,7 +34,11 @@
     </div>
 </nav>
 {% endblock %}
-
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {# moment.lang('ru') #}
+{% endblock %}
 {% block content %}
 <div class="container">
     {% with messages = get_flashed_messages() %}
