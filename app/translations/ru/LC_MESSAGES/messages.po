@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-08-27 20:43+0300\n"
+"POT-Creation-Date: 2018-09-03 19:33+0300\n"
 "PO-Revision-Date: 2018-08-27 20:43+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -27,17 +27,27 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+#: app/translate.py:9
+msgid "Error: the translation service is not configured."
+msgstr ""
+
+#: app/translate.py:16
+msgid "Error: the translation service failed."
+msgstr ""
+
 #: app/templates/404.html:4
 msgid "File Not Found"
 msgstr ""
 
-#: app/templates/_post.html:14
-#, python-format
-msgid "%(username)s said %(when)s"
+#: app/templates/base.html:52
+msgid "Error: Could not contact server."
 msgstr ""
 
 #: app/templates/index.html:4
 #, python-format
 msgid "Hi, %(username)s!"
 msgstr ""
+
+#~ msgid "%(username)s said %(when)s"
+#~ msgstr ""
 
