@@ -1,0 +1,80 @@
+2018-09-04 12:14:44,855 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/yoj/devman/microblog/app/routes.py", line 134, in edit_profile
+    user = User.query.filter_by(username=username).first_or_404()
+NameError: name 'username' is not defined
+2018-09-04 12:15:26,972 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:15:29,329 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/yoj/devman/microblog/app/routes.py", line 145, in edit_profile
+    return render_template('edit_profile.html', title='Edit Profile', form=form, user=user)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/yoj/devman/microblog/app/templates/edit_profile.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/yoj/devman/microblog/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/home/yoj/devman/microblog/app/templates/base.html", line 68, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/home/yoj/devman/microblog/app/templates/edit_profile.html", line 24, in block "app_content"
+    <td><img src="{{ user.avatar(128) }}"></td>
+jinja2.exceptions.UndefinedError: 'str object' has no attribute 'avatar'
+2018-09-04 12:17:27,933 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:18:53,017 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:19:35,034 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:22:20,999 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:26:17,346 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:26:30,776 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:31:39,704 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:33:57,298 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:36:39,004 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 14:22:44,602 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 14:22:52,994 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 14:25:29,273 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 14:32:01,021 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]

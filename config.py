@@ -16,3 +16,8 @@ class Config(object):
     POSTS_PER_PAGE = 12
     LANGUAGES = ['en', 'es', 'ru']
     MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    UPLOAD_FOLDER = '/home/yoj/devman/microblog/app/static/avatars/'
+    AVATAR_FOLDER = '/static/avatars/'
+    ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024

@@ -1,4 +1,4 @@
-2018-09-04 18:05:39,914 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-04 16:08:31,582 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,22 +14,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, new_image_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1947, in save
-    fp = builtins.open(filename, "w+b")
-NotADirectoryError: [Errno 20] Not a directory: '/home/yoj/devman/microblog/app/static/avatars/3/pes.jpg/pes__128x96.jpg'
-2018-09-04 18:06:29,505 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:06:36,866 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 143, in edit_profile
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/megacat.jpg'
+2018-09-04 16:09:33,007 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:09:44,862 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -45,22 +36,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, source_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:08:13,434 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:08:22,863 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 143, in edit_profile
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/megacat.jpg'
+2018-09-04 16:13:18,703 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:14:55,163 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:15:17,959 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -76,22 +59,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:03,936 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:10:15,544 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 143, in edit_profile
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/pes.jpg'
+2018-09-04 16:17:18,419 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:17:30,238 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -107,15 +81,13 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:59,064 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:11:06,956 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/app/routes.py", line 143, in edit_profile
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/pes.jpg'
+2018-09-04 16:18:01,987 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:18:12,537 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -131,11 +103,14 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image)
-  File "/home/yoj/devman/microblog/image_resize.py", line 44, in save_resized_image
-    source_name, ext = os.path.splitext(os.path.basename(source_path))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/posixpath.py", line 146, in basename
-    p = os.fspath(p)
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-2018-09-04 18:11:53,282 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/app/routes.py", line 143, in edit_profile
+    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
+    dst = open(dst, 'wb')
+FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/pes.jpg'
+2018-09-04 16:21:51,812 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:35:58,130 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:44:31,706 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:45:30,144 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 16:46:51,106 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 17:14:33,188 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]

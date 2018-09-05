@@ -21,6 +21,9 @@ from flask_babel import get_locale
 from guess_language import guess_language
 from flask import jsonify
 from app.translate import translate
+from werkzeug.utils import secure_filename
+import os
+from image_resize import get_new_dimensions, resize_image, save_resized_image, get_image
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -129,17 +132,37 @@ def before_request():
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
+    user = User.query.filter_by(username=current_user.username).first_or_404()
     form = EditProfileForm(current_user.username)
+    filepath = user.photo_path
     if form.validate_on_submit():
+        photo = form.photo.data
+        filename = secure_filename(photo.filename)
+        user_dir = os.path.join(app.config['UPLOAD_FOLDER'], str(user.id))
+        if not os.path.exists(user_dir):
+            os.mkdir(user_dir)
+        photo.save(os.path.join(user_dir, filename))
+        image_dir = os.path.join(user_dir, filename)
+        image = get_image(image_dir)
+        old_dimensions = image.size
+        new_width, new_height, ratio, new_ratio = get_new_dimensions(
+        old_dimensions, 128)
+        resized_image = resize_image(image, new_width, new_height, image_dir)
+        print(resized_image)
+        filepath = os.path.join(app.config['AVATAR_FOLDER'], str(user.id), filename)
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
+        current_user.set_avatar_path(filepath)
         db.session.commit()
         flash('Your changes have been saved')
         return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
+        form.photo.data = current_user.photo_path
+    if not filepath:
+        filepath = '/static/avatars/muay.jpg'
+    return render_template('edit_profile.html', title='Edit Profile', form=form, user=user, filepath=filepath)
 
 
 @app.route('/follow/<username>')
@@ -156,6 +179,28 @@ def follow(username):
     db.session.commit()
     flash('You are following {}!'.format(username))
     return redirect(url_for('user', username=username))
+
+
+@app.route('/upload', methods=['GET', 'POST'])
+@login_required
+def upload_file():
+    username=user.username
+    if request.method == 'POST':
+        file = request.files['file']
+        if file: # and user.allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('user', title='Edit Profile', username=user.username,
+                                    filename=filename))
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+    '''
 
 
 @app.route('/unfollow/<username>')

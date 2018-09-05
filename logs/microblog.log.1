@@ -1,72 +1,68 @@
-2018-09-03 19:33:54,456 INFO: Microblog startup [in /home/belov/devman/microblog/app/__init__.py:55]
-2018-09-03 19:34:00,937 ERROR: Exception on / [GET] [in /home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-04 18:12:02,000 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
+    format = EXTENSION[ext]
+KeyError: ''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/belov/devman/microblog/app/routes.py", line 49, in index
-    prev_url=prev_url)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
+    save_resized_image(resized_image)
+  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
+    resized_image.save(resized_image)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
+    raise ValueError('unknown file extension: {}'.format(ext))
+ValueError: unknown file extension: 
+2018-09-04 18:13:26,621 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 18:13:35,484 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/belov/devman/microblog/app/templates/_post.html", line 25, in template
-    {% endif %}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "/home/belov/devman/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/belov/devman/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
-    {% block content -%}
-  File "/home/belov/devman/microblog/app/templates/base.html", line 68, in block "content"
-    {% block app_content %}{% endblock %}
-  File "/home/belov/devman/microblog/app/templates/index.html", line 19, in block "app_content"
-    {% include '_post.html' %}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/belov/devman/microblog/app/templates/_post.html", line 25, in template
-    {% endif %}
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/parser.py", line 144, in parse_statement
-    self.fail_unknown_tag(token.value, token.lineno)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/parser.py", line 97, in fail_unknown_tag
-    return self._fail_ut_eof(name, self._end_token_stack, lineno)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/parser.py", line 90, in _fail_ut_eof
-    self.fail(' '.join(message), lineno)
-  File "/home/belov/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/parser.py", line 59, in fail
-    raise exc(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endif'.
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/yoj/devman/microblog/app/routes.py", line 150, in edit_profile
+    resized_image = resize_image(image, new_width, new_height)
+  File "/home/yoj/devman/microblog/image_resize.py", line 33, in resize_image
+    resized_image.save()
+TypeError: save() missing 1 required positional argument: 'fp'
+2018-09-04 18:15:48,581 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 18:17:48,127 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 18:26:42,333 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 18:28:07,542 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 18:36:01,813 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 18:46:37,200 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 19:21:21,834 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 19:31:20,193 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 19:32:20,075 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 19:45:40,033 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 19:46:10,703 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 19:59:48,907 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-05 09:03:32,951 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-05 09:37:00,059 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-05 09:37:06,067 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-05 09:38:32,449 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]

@@ -6,6 +6,7 @@ from app import login, app
 import jwt
 from hashlib import md5
 from time import time
+import os
 
 
 followers = db.Table('followers', db.Column('follower_id',
@@ -26,6 +27,7 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+    photo_path = db.Column(db.String(64), default='/static/avatars/muay.jpg')
 
     def __repr__(self):
         return '<<User {}>>'.format(self.username)
@@ -36,10 +38,17 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def set_avatar_path(self, avatar):
+        self.photo_path = avatar
+
     def avatar(self, size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
+
+    def allowed_file(self, filename):
+        return '.' in filename and \
+               filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
     def follow(self, user):
         if not self.is_following(user):
@@ -73,6 +82,10 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+
+    @property
+    def get_avatar(self):
+        return self.photo_path
 
 
 @login.user_loader

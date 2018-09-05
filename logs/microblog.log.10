@@ -1,4 +1,4 @@
-2018-09-04 18:05:39,914 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-04 10:59:15,609 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,22 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, new_image_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1947, in save
-    fp = builtins.open(filename, "w+b")
-NotADirectoryError: [Errno 20] Not a directory: '/home/yoj/devman/microblog/app/static/avatars/3/pes.jpg/pes__128x96.jpg'
-2018-09-04 18:06:29,505 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:06:36,866 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 166, in upload_file
+    if file and user.allowed_file(file.filename):
+AttributeError: 'function' object has no attribute 'allowed_file'
+2018-09-04 11:02:44,062 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 11:02:58,152 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -45,22 +34,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, source_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:08:13,434 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:08:22,863 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 169, in upload_file
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+NameError: name 'os' is not defined
+2018-09-04 11:03:26,289 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 11:03:31,736 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -76,22 +54,22 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:03,936 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:10:15,544 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 172, in upload_file
+    filename=filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'uploaded_file' with values ['filename']. Did you mean 'upload_file' instead?
+2018-09-04 11:19:23,349 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 11:21:49,381 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 11:22:00,612 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -107,15 +85,21 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:59,064 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:11:06,956 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/app/routes.py", line 172, in upload_file
+    filename=filename))
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 356, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2061, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 345, in url_for
+    force_external=external)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1776, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['filename', 'title']. Did you forget to specify values ['username']?
+2018-09-04 11:22:24,517 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 11:22:29,980 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -131,11 +115,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image)
-  File "/home/yoj/devman/microblog/image_resize.py", line 44, in save_resized_image
-    source_name, ext = os.path.splitext(os.path.basename(source_path))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/posixpath.py", line 146, in basename
-    p = os.fspath(p)
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-2018-09-04 18:11:53,282 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/app/routes.py", line 171, in upload_file
+    return redirect(url_for('user', title='Edit Profile', username=user.username,
+AttributeError: 'function' object has no attribute 'username'
+2018-09-04 11:23:12,344 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 11:23:40,916 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]

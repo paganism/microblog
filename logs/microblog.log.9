@@ -1,4 +1,4 @@
-2018-09-04 18:05:39,914 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-04 11:23:43,446 ERROR: Exception on /upload [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,22 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, new_image_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1947, in save
-    fp = builtins.open(filename, "w+b")
-NotADirectoryError: [Errno 20] Not a directory: '/home/yoj/devman/microblog/app/static/avatars/3/pes.jpg/pes__128x96.jpg'
-2018-09-04 18:06:29,505 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:06:36,866 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 166, in upload_file
+    username=user.username
+AttributeError: 'function' object has no attribute 'username'
+2018-09-04 12:12:03,268 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:12:06,421 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -45,22 +34,41 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, source_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:08:13,434 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:08:22,863 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 144, in edit_profile
+    return render_template('edit_profile.html', title='Edit Profile', form=form)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
+    context, ctx.app)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
+    rv = template.render(context)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/home/yoj/devman/microblog/app/templates/edit_profile.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/yoj/devman/microblog/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/home/yoj/devman/microblog/app/templates/base.html", line 68, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/home/yoj/devman/microblog/app/templates/edit_profile.html", line 24, in block "app_content"
+    <td><img src="{{ user.avatar(128) }}"></td>
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2018-09-04 12:13:30,617 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:13:33,335 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -76,22 +84,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:03,936 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:10:15,544 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/app/routes.py", line 144, in edit_profile
+    return render_template('edit_profile.html', title='Edit Profile', form=form, username=username)
+NameError: name 'username' is not defined
+2018-09-04 12:14:13,423 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:14:15,091 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -107,15 +104,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:59,064 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:11:06,956 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/app/routes.py", line 134, in edit_profile
+    user = User.query.filter_by(username=username).first_or_404()
+NameError: name 'username' is not defined
+2018-09-04 12:14:29,617 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+2018-09-04 12:14:31,595 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -131,11 +124,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image)
-  File "/home/yoj/devman/microblog/image_resize.py", line 44, in save_resized_image
-    source_name, ext = os.path.splitext(os.path.basename(source_path))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/posixpath.py", line 146, in basename
-    p = os.fspath(p)
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-2018-09-04 18:11:53,282 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/app/routes.py", line 134, in edit_profile
+    user = User.query.filter_by(username=username).first_or_404()
+NameError: name 'username' is not defined
+2018-09-04 12:14:43,188 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]

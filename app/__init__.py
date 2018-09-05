@@ -13,6 +13,9 @@ from flask_moment import Moment
 from flask_babel import Babel
 from flask import request
 from flask_babel import lazy_gettext as _l
+from flask import Blueprint
+from elasticsearch import Elasticsearch
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
@@ -26,6 +29,10 @@ mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 babel = Babel(app)
+UPLOAD_FOLDER = app.config['UPLOAD_FOLDER']
+bp = Blueprint('errors', __name__)
+
+
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
@@ -60,3 +67,4 @@ def get_locale():
     # return 'ru'
 
 from app import routes, models, errors
+# from app.errors import handlers
