@@ -1,4 +1,4 @@
-2018-09-04 10:59:15,609 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-06 09:24:14,357 ERROR: Exception on /favicon.ico [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,17 +8,25 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 166, in upload_file
-    if file and user.allowed_file(file.filename):
-AttributeError: 'function' object has no attribute 'allowed_file'
-2018-09-04 11:02:44,062 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 11:02:58,152 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:25:26,275 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 09:25:31,747 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -28,17 +36,24 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 169, in upload_file
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-NameError: name 'os' is not defined
-2018-09-04 11:03:26,289 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 11:03:31,736 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:25:31,814 ERROR: Exception on /favicon.ico [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -48,28 +63,25 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 172, in upload_file
-    filename=filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'uploaded_file' with values ['filename']. Did you mean 'upload_file' instead?
-2018-09-04 11:19:23,349 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 11:21:49,381 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 11:22:00,612 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:27:55,424 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 09:28:09,085 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -79,27 +91,24 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 172, in upload_file
-    filename=filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 356, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2061, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/helpers.py", line 345, in url_for
-    force_external=external)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'user' with values ['filename', 'title']. Did you forget to specify values ['username']?
-2018-09-04 11:22:24,517 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 11:22:29,980 ERROR: Exception on /upload [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:28:09,176 ERROR: Exception on /favicon.ico [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -109,14 +118,20 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 171, in upload_file
-    return redirect(url_for('user', title='Edit Profile', username=user.username,
-AttributeError: 'function' object has no attribute 'username'
-2018-09-04 11:23:12,344 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 11:23:40,916 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable

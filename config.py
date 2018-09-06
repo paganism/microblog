@@ -1,5 +1,7 @@
 import os
+from dotenv import load_dotenv
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
 
 class Config(object):
@@ -21,3 +23,4 @@ class Config(object):
     AVATAR_FOLDER = '/static/avatars/'
     ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+    UPLOAD_SET_CONFIG = set(['png', 'jpg', 'jpeg', 'gif'])

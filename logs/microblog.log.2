@@ -1,4 +1,4 @@
-2018-09-04 18:05:39,914 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-06 11:02:31,841 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,28 +8,25 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, new_image_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1947, in save
-    fp = builtins.open(filename, "w+b")
-NotADirectoryError: [Errno 20] Not a directory: '/home/yoj/devman/microblog/app/static/avatars/3/pes.jpg/pes__128x96.jpg'
-2018-09-04 18:06:29,505 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:06:36,866 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 195, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 37, in after_commit
+    print(session._changes['add'])
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 11:21:17,875 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 11:21:23,122 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -39,28 +36,25 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(os.path.join(image_dir, source_name))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:08:13,434 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:08:22,863 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 195, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 37, in after_commit
+    print(session._changes['add'])
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 11:24:05,006 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 11:24:08,156 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -70,28 +64,25 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 151, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:03,936 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:10:15,544 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1930, in save
-    format = EXTENSION[ext]
-KeyError: ''
-
-During handling of the above exception, another exception occurred:
-
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 195, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 38, in after_commit
+    print(session._changes['add'])
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 11:25:27,678 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 11:25:30,367 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -101,21 +92,24 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image, image_dir, image_dir)
-  File "/home/yoj/devman/microblog/image_resize.py", line 46, in save_resized_image
-    resized_image.save(resized_image)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/PIL/Image.py", line 1932, in save
-    raise ValueError('unknown file extension: {}'.format(ext))
-ValueError: unknown file extension: 
-2018-09-04 18:10:59,064 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 18:11:06,956 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 195, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 38, in after_commit
+    print(session._changes['add'])
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 11:25:30,435 ERROR: Exception on /favicon.ico [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -125,17 +119,21 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 152, in edit_profile
-    save_resized_image(resized_image)
-  File "/home/yoj/devman/microblog/image_resize.py", line 44, in save_resized_image
-    source_name, ext = os.path.splitext(os.path.basename(source_path))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/posixpath.py", line 146, in basename
-    p = os.fspath(p)
-TypeError: expected str, bytes or os.PathLike object, not NoneType
-2018-09-04 18:11:53,282 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 195, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 38, in after_commit
+    print(session._changes['add'])
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 11:26:01,064 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]

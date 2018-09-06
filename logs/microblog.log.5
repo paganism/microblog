@@ -1,4 +1,89 @@
-2018-09-04 14:59:01,735 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-06 10:35:11,893 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 10:35:18,045 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 33, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 37, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 10:38:05,121 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 10:38:10,978 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 33, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 37, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 10:39:56,412 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 10:39:59,440 ERROR: Exception on / [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 33, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 10:40:20,975 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 10:41:03,128 ERROR: Exception on / [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,97 +99,17 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 141, in edit_profile
-    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
-    dst = open(dst, 'wb')
-FileNotFoundError: [Errno 2] No such file or directory: '/app/static/avatars/megacat.jpg'
-2018-09-04 14:59:29,250 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 14:59:39,345 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 141, in edit_profile
-    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
-    dst = open(dst, 'wb')
-FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/megacat.jpg'
-2018-09-04 15:59:23,200 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 141, in edit_profile
-    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
-    dst = open(dst, 'wb')
-FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/megacat.jpg'
-2018-09-04 16:02:03,398 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 16:03:59,584 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 16:04:12,454 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 142, in edit_profile
-    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
-    dst = open(dst, 'wb')
-FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/megacat.jpg'
-2018-09-04 16:04:47,044 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 16:04:54,185 ERROR: Exception on /edit_profile [POST] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
-Traceback (most recent call last):
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
-    raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 142, in edit_profile
-    photo.save(os.path.join(app.config['UPLOAD_FOLDER'], '/static/avatars/', filename))
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/werkzeug/datastructures.py", line 2725, in save
-    dst = open(dst, 'wb')
-FileNotFoundError: [Errno 2] No such file or directory: '/static/avatars/megacat.jpg'
-2018-09-04 16:08:21,434 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 49, in index
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 10:43:35,702 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]

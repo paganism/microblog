@@ -1,4 +1,4 @@
-2018-09-04 11:23:43,446 ERROR: Exception on /upload [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+2018-09-06 09:28:22,699 ERROR: Exception on /upload [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -8,17 +8,24 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 166, in upload_file
-    username=user.username
-AttributeError: 'function' object has no attribute 'username'
-2018-09-04 12:12:03,268 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 12:12:06,421 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:28:22,771 ERROR: Exception on /favicon.ico [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -28,47 +35,24 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 144, in edit_profile
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 135, in render_template
-    context, ctx.app)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/templating.py", line 117, in _render
-    rv = template.render(context)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "/home/yoj/devman/microblog/app/templates/edit_profile.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/yoj/devman/microblog/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
-    {% block content -%}
-  File "/home/yoj/devman/microblog/app/templates/base.html", line 68, in block "content"
-    {% block app_content %}{% endblock %}
-  File "/home/yoj/devman/microblog/app/templates/edit_profile.html", line 24, in block "app_content"
-    <td><img src="{{ user.avatar(128) }}"></td>
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/jinja2/environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'user' is undefined
-2018-09-04 12:13:30,617 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 12:13:33,335 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:28:28,466 ERROR: Exception on /explore [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -78,17 +62,24 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 144, in edit_profile
-    return render_template('edit_profile.html', title='Edit Profile', form=form, username=username)
-NameError: name 'username' is not defined
-2018-09-04 12:14:13,423 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 12:14:15,091 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:28:28,546 ERROR: Exception on /favicon.ico [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -98,17 +89,25 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 134, in edit_profile
-    user = User.query.filter_by(username=username).first_or_404()
-NameError: name 'username' is not defined
-2018-09-04 12:14:29,617 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
-2018-09-04 12:14:31,595 ERROR: Exception on /edit_profile [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
+2018-09-06 09:56:45,660 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:85]
+2018-09-06 09:56:53,455 ERROR: Exception on /explore [GET] [in /home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -118,13 +117,20 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
     raise value
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/home/yoj/devman/microblog/app/routes.py", line 134, in edit_profile
-    user = User.query.filter_by(username=username).first_or_404()
-NameError: name 'username' is not defined
-2018-09-04 12:14:43,188 INFO: Microblog startup [in /home/yoj/devman/microblog/app/__init__.py:59]
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/flask/app.py", line 2087, in preprocess_request
+    rv = func()
+  File "/home/yoj/devman/microblog/app/main/routes.py", line 31, in before_request
+    db.session.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 943, in commit
+    self.transaction.commit()
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 474, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/yoj/devman/microblog/.venv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 246, in __call__
+    fn(*args, **kw)
+  File "/home/yoj/devman/microblog/app/models.py", line 35, in after_commit
+    for obj in session._changes['add']:
+TypeError: 'NoneType' object is not subscriptable
