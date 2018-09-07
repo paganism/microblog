@@ -16,3 +16,9 @@ $ docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=my-secret-key \
     -e DATABASE_URL=mysql+pymysql://microblog:microblog@dbserver/microblog \
     microblog:latest
 ```
+```
+$ docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 --rm \
+    -e "discovery.type=single-node" \
+    docker.elastic.co/elasticsearch/elasticsearch-oss:6.1.1
+```
+
