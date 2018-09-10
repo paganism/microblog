@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-03 19:33+0300\n"
+"POT-Creation-Date: 2018-09-10 11:01+0300\n"
 "PO-Revision-Date: 2018-08-27 20:43+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,12 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: app/__init__.py:24
+#: app/__init__.py:26
 msgid "Please log in to access this page."
-msgstr ""
-
-#: app/forms.py:9
-msgid "Username"
 msgstr ""
 
 #: app/translate.py:9
@@ -35,17 +31,165 @@ msgstr ""
 msgid "Error: the translation service failed."
 msgstr ""
 
-#: app/templates/404.html:4
-msgid "File Not Found"
+#: app/auth/forms.py:10 app/main/forms.py:15
+msgid "Username"
 msgstr ""
 
-#: app/templates/base.html:52
+#: app/auth/forms.py:11
+msgid "Password"
+msgstr ""
+
+#: app/auth/forms.py:12
+msgid "Remember Me"
+msgstr ""
+
+#: app/auth/routes.py:44
+msgid "Sign In"
+msgstr ""
+
+#: app/auth/routes.py:65
+msgid "Register"
+msgstr ""
+
+#: app/auth/routes.py:77
+msgid "Check your email for the instructions to reset your password"
+msgstr ""
+
+#: app/auth/routes.py:79
+msgid "Reset Password"
+msgstr ""
+
+#: app/auth/routes.py:93
+msgid "Your password has been reset"
+msgstr ""
+
+#: app/main/forms.py:14
+msgid "Your Image"
+msgstr ""
+
+#: app/main/forms.py:16
+msgid "About me"
+msgstr ""
+
+#: app/main/forms.py:18 app/main/forms.py:33 app/main/forms.py:50
+msgid "Submit"
+msgstr ""
+
+#: app/main/forms.py:28
+msgid "Please use a different username."
+msgstr ""
+
+#: app/main/forms.py:32
+msgid "Say something"
+msgstr ""
+
+#: app/main/forms.py:37
+msgid "Search"
+msgstr ""
+
+#: app/main/forms.py:48
+msgid "Message"
+msgstr ""
+
+#: app/main/routes.py:45
+msgid "Home"
+msgstr ""
+
+#: app/main/routes.py:61
+msgid "Explore"
+msgstr ""
+
+#: app/main/routes.py:129
+msgid "Edit Profile"
+msgstr ""
+
+#: app/main/routes.py:228
+msgid "Your message has been sent"
+msgstr ""
+
+#: app/main/routes.py:231
+msgid "Send Message"
+msgstr ""
+
+#: app/templates/_post.html:16
+#, python-format
+msgid "%(username)s said %(when)s"
+msgstr ""
+
+#: app/templates/_post.html:27
+msgid "Translate"
+msgstr ""
+
+#: app/templates/base.html:27
+msgid "Login"
+msgstr ""
+
+#: app/templates/base.html:31 app/templates/messages.html:4
+msgid "Messages"
+msgstr ""
+
+#: app/templates/base.html:62
 msgid "Error: Could not contact server."
 msgstr ""
 
 #: app/templates/index.html:4
 #, python-format
 msgid "Hi, %(username)s!"
+msgstr ""
+
+#: app/templates/messages.html:12
+msgid "Newer messages"
+msgstr ""
+
+#: app/templates/messages.html:17
+msgid "Older messages"
+msgstr ""
+
+#: app/templates/search.html:4
+msgid "Search Results"
+msgstr ""
+
+#: app/templates/search.html:13
+msgid "Previous results"
+msgstr ""
+
+#: app/templates/search.html:18
+msgid "Next results"
+msgstr ""
+
+#: app/templates/send_message.html:5
+#, python-format
+msgid "Send Message to %(recipient)s"
+msgstr ""
+
+#: app/templates/user.html:25
+msgid "Send private message"
+msgstr ""
+
+#: app/templates/user_popup.html:13
+msgid "Last seen on"
+msgstr ""
+
+#: app/templates/user_popup.html:16
+#, python-format
+msgid "%(count)d followers"
+msgstr ""
+
+#: app/templates/user_popup.html:17
+#, python-format
+msgid "%(count)d following"
+msgstr ""
+
+#: app/templates/user_popup.html:21
+msgid "Follow"
+msgstr ""
+
+#: app/templates/user_popup.html:25
+msgid "Unfollow"
+msgstr ""
+
+#: app/templates/errors/404.html:4
+msgid "File Not Found"
 msgstr ""
 
 #~ msgid "%(username)s said %(when)s"
